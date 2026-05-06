@@ -1,0 +1,17 @@
+<launch>
+    <arg name="world_file" default="$(find-pkg-share maze_runner_gazebo)/worlds/random_maze_cpp.sdf" />
+
+    <arg name="robot_desc" default="$(command 'xacro $(find-pkg-share maze_runner_description)/urdf/maze_runner.urdf.xacro')" />
+
+    <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
+        <param name="robot_description" value="$(var robot_desc)" />
+    </node>
+
+    <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py">
+        <arg name="gz_args" value="-r $(var world_file)" />
+    </include>
+
+    <node pkg="ros_gz_sim" exec="create" output="screen"
+          args="-world maze_world -topic robot_description -name maze_runner -allow_renaming true -x 1.5 -y 1.5 -z 0.2" />
+
+</launch>

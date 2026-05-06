@@ -94,8 +94,8 @@ void export_to_sdf(const vector<vector<int>>& grid, const string& filename) {
 }
 
 int main() {
-    // Generiere Labyrinth-Matrix (15x15)
-    vector<vector<int>> maze_grid = generate_maze_grid(27, 27);
+    // Generiere Labyrinth-Matrix (17x17)
+    vector<vector<int>> maze_grid = generate_maze_grid(17, 17);
     
     // Speichere das Ergebnis direkt im worlds-Ordner
     string output_path = "../worlds/random_maze_cpp.sdf";
