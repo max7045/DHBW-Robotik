@@ -1,0 +1,27 @@
+# 1. Fahrbefehle: ROS 2 sendet an Gazebo
+- ros_topic_name: "/cmd_vel"
+  gz_topic_name: "/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+# 2. Gelenkzustände (Räder): Gazebo sendet an ROS 2
+- ros_topic_name: "/joint_states"
+  gz_topic_name: "/world/maze_world/model/maze_runner/joint_state"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+
+# 3. Odometrie (Bewegung im Raum): Gazebo sendet an ROS 2
+- ros_topic_name: "/tf"
+  gz_topic_name: "/model/maze_runner/tf"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+# 4. LiDAR Scanner: Gazebo sendet an ROS 2
+- ros_topic_name: "/scan"
+  gz_topic_name: "/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS

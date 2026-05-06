@@ -78,12 +78,20 @@
             <wheel_separation>0.35</wheel_separation>
             <wheel_radius>0.05</wheel_radius>
             <topic>cmd_vel</topic> </plugin>
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_footprint</child_frame_id>
+    </gazebo>
+
+    <gazebo>
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+        </plugin>
     </gazebo>
 
     <gazebo reference="lidar_link">
         <sensor name="lidar" type="gpu_lidar">
             <topic>scan</topic>
             <update_rate>10</update_rate>
+            <gz_frame_id>lidar_link</gz_frame_id>
             <ray>
                 <scan>
                     <horizontal>
@@ -95,6 +103,12 @@
             </ray>
             <always_on>1</always_on>
             <visualize>true</visualize> </sensor>
+    </gazebo>
+    
+    <gazebo>
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
     </gazebo>
 
 </robot>
