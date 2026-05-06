@@ -1,0 +1,3915 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="maze_world">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+
+    <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri></include>
+    <include><uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri></include>
+    <model name='wall_0_0'>
+      <static>true</static>
+      <pose>0 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_0'>
+      <static>true</static>
+      <pose>3 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_0'>
+      <static>true</static>
+      <pose>4.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_0'>
+      <static>true</static>
+      <pose>6 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_5_0'>
+      <static>true</static>
+      <pose>7.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_0'>
+      <static>true</static>
+      <pose>9 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_7_0'>
+      <static>true</static>
+      <pose>10.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_0'>
+      <static>true</static>
+      <pose>12 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_0'>
+      <static>true</static>
+      <pose>13.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_0'>
+      <static>true</static>
+      <pose>15 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_0'>
+      <static>true</static>
+      <pose>16.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_0'>
+      <static>true</static>
+      <pose>18 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_0'>
+      <static>true</static>
+      <pose>19.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_0'>
+      <static>true</static>
+      <pose>21 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_0'>
+      <static>true</static>
+      <pose>22.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_0'>
+      <static>true</static>
+      <pose>24 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_17_0'>
+      <static>true</static>
+      <pose>25.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_0'>
+      <static>true</static>
+      <pose>27 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_0'>
+      <static>true</static>
+      <pose>28.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_0'>
+      <static>true</static>
+      <pose>30 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_21_0'>
+      <static>true</static>
+      <pose>31.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_0'>
+      <static>true</static>
+      <pose>33 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_23_0'>
+      <static>true</static>
+      <pose>34.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_0'>
+      <static>true</static>
+      <pose>36 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_25_0'>
+      <static>true</static>
+      <pose>37.5 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_0'>
+      <static>true</static>
+      <pose>39 0 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_1'>
+      <static>true</static>
+      <pose>0 1.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_1'>
+      <static>true</static>
+      <pose>12 1.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_1'>
+      <static>true</static>
+      <pose>24 1.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_1'>
+      <static>true</static>
+      <pose>39 1.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_2'>
+      <static>true</static>
+      <pose>0 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_1_2'>
+      <static>true</static>
+      <pose>1.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_2'>
+      <static>true</static>
+      <pose>3 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_2'>
+      <static>true</static>
+      <pose>4.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_2'>
+      <static>true</static>
+      <pose>6 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_5_2'>
+      <static>true</static>
+      <pose>7.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_2'>
+      <static>true</static>
+      <pose>9 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_2'>
+      <static>true</static>
+      <pose>12 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_2'>
+      <static>true</static>
+      <pose>13.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_2'>
+      <static>true</static>
+      <pose>15 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_2'>
+      <static>true</static>
+      <pose>18 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_2'>
+      <static>true</static>
+      <pose>19.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_2'>
+      <static>true</static>
+      <pose>21 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_2'>
+      <static>true</static>
+      <pose>24 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_2'>
+      <static>true</static>
+      <pose>27 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_2'>
+      <static>true</static>
+      <pose>28.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_2'>
+      <static>true</static>
+      <pose>30 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_2'>
+      <static>true</static>
+      <pose>33 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_23_2'>
+      <static>true</static>
+      <pose>34.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_2'>
+      <static>true</static>
+      <pose>36 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_25_2'>
+      <static>true</static>
+      <pose>37.5 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_2'>
+      <static>true</static>
+      <pose>39 3 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_3'>
+      <static>true</static>
+      <pose>0 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_3'>
+      <static>true</static>
+      <pose>12 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_3'>
+      <static>true</static>
+      <pose>18 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_3'>
+      <static>true</static>
+      <pose>24 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_3'>
+      <static>true</static>
+      <pose>30 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_3'>
+      <static>true</static>
+      <pose>39 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_4'>
+      <static>true</static>
+      <pose>0 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_4'>
+      <static>true</static>
+      <pose>3 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_4'>
+      <static>true</static>
+      <pose>4.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_4'>
+      <static>true</static>
+      <pose>6 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_5_4'>
+      <static>true</static>
+      <pose>7.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_4'>
+      <static>true</static>
+      <pose>9 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_7_4'>
+      <static>true</static>
+      <pose>10.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_4'>
+      <static>true</static>
+      <pose>12 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_4'>
+      <static>true</static>
+      <pose>15 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_4'>
+      <static>true</static>
+      <pose>16.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_4'>
+      <static>true</static>
+      <pose>18 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_4'>
+      <static>true</static>
+      <pose>21 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_4'>
+      <static>true</static>
+      <pose>22.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_4'>
+      <static>true</static>
+      <pose>24 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_17_4'>
+      <static>true</static>
+      <pose>25.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_4'>
+      <static>true</static>
+      <pose>27 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_4'>
+      <static>true</static>
+      <pose>28.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_4'>
+      <static>true</static>
+      <pose>30 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_21_4'>
+      <static>true</static>
+      <pose>31.5 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_4'>
+      <static>true</static>
+      <pose>33 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_4'>
+      <static>true</static>
+      <pose>36 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_4'>
+      <static>true</static>
+      <pose>39 6 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_5'>
+      <static>true</static>
+      <pose>0 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_5'>
+      <static>true</static>
+      <pose>6 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_5'>
+      <static>true</static>
+      <pose>15 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_5'>
+      <static>true</static>
+      <pose>18 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_5'>
+      <static>true</static>
+      <pose>24 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_5'>
+      <static>true</static>
+      <pose>33 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_5'>
+      <static>true</static>
+      <pose>36 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_5'>
+      <static>true</static>
+      <pose>39 7.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_6'>
+      <static>true</static>
+      <pose>0 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_1_6'>
+      <static>true</static>
+      <pose>1.5 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_6'>
+      <static>true</static>
+      <pose>3 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_6'>
+      <static>true</static>
+      <pose>6 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_6'>
+      <static>true</static>
+      <pose>9 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_7_6'>
+      <static>true</static>
+      <pose>10.5 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_6'>
+      <static>true</static>
+      <pose>12 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_6'>
+      <static>true</static>
+      <pose>13.5 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_6'>
+      <static>true</static>
+      <pose>15 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_6'>
+      <static>true</static>
+      <pose>18 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_6'>
+      <static>true</static>
+      <pose>19.5 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_6'>
+      <static>true</static>
+      <pose>21 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_6'>
+      <static>true</static>
+      <pose>24 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_6'>
+      <static>true</static>
+      <pose>27 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_6'>
+      <static>true</static>
+      <pose>28.5 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_6'>
+      <static>true</static>
+      <pose>30 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_6'>
+      <static>true</static>
+      <pose>33 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_23_6'>
+      <static>true</static>
+      <pose>34.5 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_6'>
+      <static>true</static>
+      <pose>36 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_6'>
+      <static>true</static>
+      <pose>39 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_7'>
+      <static>true</static>
+      <pose>0 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_7'>
+      <static>true</static>
+      <pose>6 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_7'>
+      <static>true</static>
+      <pose>9 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_7'>
+      <static>true</static>
+      <pose>12 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_7'>
+      <static>true</static>
+      <pose>24 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_7'>
+      <static>true</static>
+      <pose>27 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_7'>
+      <static>true</static>
+      <pose>30 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_7'>
+      <static>true</static>
+      <pose>33 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_7'>
+      <static>true</static>
+      <pose>39 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_8'>
+      <static>true</static>
+      <pose>0 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_8'>
+      <static>true</static>
+      <pose>3 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_8'>
+      <static>true</static>
+      <pose>4.5 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_8'>
+      <static>true</static>
+      <pose>6 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_8'>
+      <static>true</static>
+      <pose>9 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_8'>
+      <static>true</static>
+      <pose>12 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_8'>
+      <static>true</static>
+      <pose>15 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_8'>
+      <static>true</static>
+      <pose>16.5 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_8'>
+      <static>true</static>
+      <pose>18 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_8'>
+      <static>true</static>
+      <pose>19.5 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_8'>
+      <static>true</static>
+      <pose>21 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_8'>
+      <static>true</static>
+      <pose>22.5 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_8'>
+      <static>true</static>
+      <pose>24 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_8'>
+      <static>true</static>
+      <pose>27 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_8'>
+      <static>true</static>
+      <pose>30 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_8'>
+      <static>true</static>
+      <pose>33 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_8'>
+      <static>true</static>
+      <pose>36 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_8'>
+      <static>true</static>
+      <pose>39 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_9'>
+      <static>true</static>
+      <pose>0 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_9'>
+      <static>true</static>
+      <pose>6 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_9'>
+      <static>true</static>
+      <pose>9 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_9'>
+      <static>true</static>
+      <pose>12 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_9'>
+      <static>true</static>
+      <pose>15 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_9'>
+      <static>true</static>
+      <pose>18 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_9'>
+      <static>true</static>
+      <pose>27 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_9'>
+      <static>true</static>
+      <pose>33 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_9'>
+      <static>true</static>
+      <pose>36 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_9'>
+      <static>true</static>
+      <pose>39 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_10'>
+      <static>true</static>
+      <pose>0 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_1_10'>
+      <static>true</static>
+      <pose>1.5 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_10'>
+      <static>true</static>
+      <pose>3 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_10'>
+      <static>true</static>
+      <pose>6 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_10'>
+      <static>true</static>
+      <pose>9 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_10'>
+      <static>true</static>
+      <pose>12 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_10'>
+      <static>true</static>
+      <pose>15 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_10'>
+      <static>true</static>
+      <pose>18 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_10'>
+      <static>true</static>
+      <pose>21 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_10'>
+      <static>true</static>
+      <pose>22.5 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_10'>
+      <static>true</static>
+      <pose>24 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_10'>
+      <static>true</static>
+      <pose>27 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_10'>
+      <static>true</static>
+      <pose>30 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_21_10'>
+      <static>true</static>
+      <pose>31.5 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_10'>
+      <static>true</static>
+      <pose>33 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_10'>
+      <static>true</static>
+      <pose>36 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_25_10'>
+      <static>true</static>
+      <pose>37.5 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_10'>
+      <static>true</static>
+      <pose>39 15 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_11'>
+      <static>true</static>
+      <pose>0 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_11'>
+      <static>true</static>
+      <pose>3 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_11'>
+      <static>true</static>
+      <pose>6 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_11'>
+      <static>true</static>
+      <pose>9 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_11'>
+      <static>true</static>
+      <pose>15 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_11'>
+      <static>true</static>
+      <pose>24 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_11'>
+      <static>true</static>
+      <pose>27 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_11'>
+      <static>true</static>
+      <pose>33 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_11'>
+      <static>true</static>
+      <pose>39 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_12'>
+      <static>true</static>
+      <pose>0 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_12'>
+      <static>true</static>
+      <pose>3 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_12'>
+      <static>true</static>
+      <pose>6 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_12'>
+      <static>true</static>
+      <pose>9 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_12'>
+      <static>true</static>
+      <pose>12 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_12'>
+      <static>true</static>
+      <pose>13.5 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_12'>
+      <static>true</static>
+      <pose>15 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_12'>
+      <static>true</static>
+      <pose>16.5 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_12'>
+      <static>true</static>
+      <pose>18 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_12'>
+      <static>true</static>
+      <pose>21 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_12'>
+      <static>true</static>
+      <pose>22.5 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_12'>
+      <static>true</static>
+      <pose>24 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_12'>
+      <static>true</static>
+      <pose>27 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_12'>
+      <static>true</static>
+      <pose>28.5 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_12'>
+      <static>true</static>
+      <pose>30 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_12'>
+      <static>true</static>
+      <pose>33 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_23_12'>
+      <static>true</static>
+      <pose>34.5 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_12'>
+      <static>true</static>
+      <pose>36 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_12'>
+      <static>true</static>
+      <pose>39 18 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_13'>
+      <static>true</static>
+      <pose>0 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_13'>
+      <static>true</static>
+      <pose>3 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_13'>
+      <static>true</static>
+      <pose>9 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_13'>
+      <static>true</static>
+      <pose>12 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_13'>
+      <static>true</static>
+      <pose>18 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_13'>
+      <static>true</static>
+      <pose>21 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_13'>
+      <static>true</static>
+      <pose>27 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_13'>
+      <static>true</static>
+      <pose>30 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_13'>
+      <static>true</static>
+      <pose>36 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_13'>
+      <static>true</static>
+      <pose>39 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_14'>
+      <static>true</static>
+      <pose>0 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_14'>
+      <static>true</static>
+      <pose>3 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_14'>
+      <static>true</static>
+      <pose>4.5 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_14'>
+      <static>true</static>
+      <pose>6 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_5_14'>
+      <static>true</static>
+      <pose>7.5 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_14'>
+      <static>true</static>
+      <pose>9 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_14'>
+      <static>true</static>
+      <pose>12 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_14'>
+      <static>true</static>
+      <pose>15 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_14'>
+      <static>true</static>
+      <pose>18 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_14'>
+      <static>true</static>
+      <pose>19.5 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_14'>
+      <static>true</static>
+      <pose>21 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_14'>
+      <static>true</static>
+      <pose>24 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_17_14'>
+      <static>true</static>
+      <pose>25.5 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_14'>
+      <static>true</static>
+      <pose>27 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_14'>
+      <static>true</static>
+      <pose>30 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_21_14'>
+      <static>true</static>
+      <pose>31.5 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_14'>
+      <static>true</static>
+      <pose>33 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_14'>
+      <static>true</static>
+      <pose>36 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_14'>
+      <static>true</static>
+      <pose>39 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_15'>
+      <static>true</static>
+      <pose>0 22.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_15'>
+      <static>true</static>
+      <pose>9 22.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_15'>
+      <static>true</static>
+      <pose>15 22.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_15'>
+      <static>true</static>
+      <pose>24 22.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_15'>
+      <static>true</static>
+      <pose>33 22.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_15'>
+      <static>true</static>
+      <pose>39 22.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_16'>
+      <static>true</static>
+      <pose>0 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_16'>
+      <static>true</static>
+      <pose>3 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_16'>
+      <static>true</static>
+      <pose>6 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_5_16'>
+      <static>true</static>
+      <pose>7.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_16'>
+      <static>true</static>
+      <pose>9 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_7_16'>
+      <static>true</static>
+      <pose>10.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_16'>
+      <static>true</static>
+      <pose>12 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_16'>
+      <static>true</static>
+      <pose>13.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_16'>
+      <static>true</static>
+      <pose>15 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_16'>
+      <static>true</static>
+      <pose>16.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_16'>
+      <static>true</static>
+      <pose>18 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_16'>
+      <static>true</static>
+      <pose>19.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_16'>
+      <static>true</static>
+      <pose>21 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_16'>
+      <static>true</static>
+      <pose>22.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_16'>
+      <static>true</static>
+      <pose>24 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_16'>
+      <static>true</static>
+      <pose>27 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_16'>
+      <static>true</static>
+      <pose>28.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_16'>
+      <static>true</static>
+      <pose>30 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_21_16'>
+      <static>true</static>
+      <pose>31.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_16'>
+      <static>true</static>
+      <pose>33 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_23_16'>
+      <static>true</static>
+      <pose>34.5 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_16'>
+      <static>true</static>
+      <pose>36 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_16'>
+      <static>true</static>
+      <pose>39 24 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_17'>
+      <static>true</static>
+      <pose>0 25.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_17'>
+      <static>true</static>
+      <pose>3 25.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_17'>
+      <static>true</static>
+      <pose>6 25.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_17'>
+      <static>true</static>
+      <pose>12 25.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_17'>
+      <static>true</static>
+      <pose>33 25.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_17'>
+      <static>true</static>
+      <pose>39 25.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_18'>
+      <static>true</static>
+      <pose>0 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_18'>
+      <static>true</static>
+      <pose>3 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_18'>
+      <static>true</static>
+      <pose>4.5 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_18'>
+      <static>true</static>
+      <pose>6 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_18'>
+      <static>true</static>
+      <pose>9 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_18'>
+      <static>true</static>
+      <pose>12 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_18'>
+      <static>true</static>
+      <pose>15 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_18'>
+      <static>true</static>
+      <pose>16.5 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_18'>
+      <static>true</static>
+      <pose>18 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_18'>
+      <static>true</static>
+      <pose>19.5 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_18'>
+      <static>true</static>
+      <pose>21 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_18'>
+      <static>true</static>
+      <pose>22.5 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_18'>
+      <static>true</static>
+      <pose>24 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_17_18'>
+      <static>true</static>
+      <pose>25.5 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_18'>
+      <static>true</static>
+      <pose>27 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_18'>
+      <static>true</static>
+      <pose>28.5 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_18'>
+      <static>true</static>
+      <pose>30 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_18'>
+      <static>true</static>
+      <pose>33 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_18'>
+      <static>true</static>
+      <pose>36 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_25_18'>
+      <static>true</static>
+      <pose>37.5 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_18'>
+      <static>true</static>
+      <pose>39 27 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_19'>
+      <static>true</static>
+      <pose>0 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_19'>
+      <static>true</static>
+      <pose>9 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_19'>
+      <static>true</static>
+      <pose>12 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_19'>
+      <static>true</static>
+      <pose>18 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_19'>
+      <static>true</static>
+      <pose>24 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_19'>
+      <static>true</static>
+      <pose>30 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_19'>
+      <static>true</static>
+      <pose>33 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_19'>
+      <static>true</static>
+      <pose>36 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_19'>
+      <static>true</static>
+      <pose>39 28.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_20'>
+      <static>true</static>
+      <pose>0 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_20'>
+      <static>true</static>
+      <pose>3 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_20'>
+      <static>true</static>
+      <pose>4.5 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_20'>
+      <static>true</static>
+      <pose>6 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_5_20'>
+      <static>true</static>
+      <pose>7.5 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_20'>
+      <static>true</static>
+      <pose>9 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_20'>
+      <static>true</static>
+      <pose>12 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_20'>
+      <static>true</static>
+      <pose>13.5 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_20'>
+      <static>true</static>
+      <pose>15 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_20'>
+      <static>true</static>
+      <pose>18 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_20'>
+      <static>true</static>
+      <pose>19.5 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_20'>
+      <static>true</static>
+      <pose>21 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_20'>
+      <static>true</static>
+      <pose>24 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_20'>
+      <static>true</static>
+      <pose>27 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_20'>
+      <static>true</static>
+      <pose>30 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_20'>
+      <static>true</static>
+      <pose>33 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_20'>
+      <static>true</static>
+      <pose>36 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_20'>
+      <static>true</static>
+      <pose>39 30 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_21'>
+      <static>true</static>
+      <pose>0 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_21'>
+      <static>true</static>
+      <pose>3 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_21'>
+      <static>true</static>
+      <pose>9 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_21'>
+      <static>true</static>
+      <pose>15 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_21'>
+      <static>true</static>
+      <pose>24 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_21'>
+      <static>true</static>
+      <pose>27 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_21'>
+      <static>true</static>
+      <pose>33 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_21'>
+      <static>true</static>
+      <pose>36 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_21'>
+      <static>true</static>
+      <pose>39 31.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_22'>
+      <static>true</static>
+      <pose>0 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_22'>
+      <static>true</static>
+      <pose>3 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_22'>
+      <static>true</static>
+      <pose>6 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_22'>
+      <static>true</static>
+      <pose>9 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_22'>
+      <static>true</static>
+      <pose>12 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_22'>
+      <static>true</static>
+      <pose>13.5 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_22'>
+      <static>true</static>
+      <pose>15 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_22'>
+      <static>true</static>
+      <pose>16.5 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_22'>
+      <static>true</static>
+      <pose>18 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_22'>
+      <static>true</static>
+      <pose>19.5 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_22'>
+      <static>true</static>
+      <pose>21 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_22'>
+      <static>true</static>
+      <pose>24 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_22'>
+      <static>true</static>
+      <pose>27 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_22'>
+      <static>true</static>
+      <pose>30 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_21_22'>
+      <static>true</static>
+      <pose>31.5 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_22'>
+      <static>true</static>
+      <pose>33 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_22'>
+      <static>true</static>
+      <pose>36 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_22'>
+      <static>true</static>
+      <pose>39 33 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_23'>
+      <static>true</static>
+      <pose>0 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_23'>
+      <static>true</static>
+      <pose>6 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_23'>
+      <static>true</static>
+      <pose>9 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_23'>
+      <static>true</static>
+      <pose>21 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_23'>
+      <static>true</static>
+      <pose>24 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_23'>
+      <static>true</static>
+      <pose>27 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_23'>
+      <static>true</static>
+      <pose>30 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_23'>
+      <static>true</static>
+      <pose>36 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_23'>
+      <static>true</static>
+      <pose>39 34.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_24'>
+      <static>true</static>
+      <pose>0 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_1_24'>
+      <static>true</static>
+      <pose>1.5 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_24'>
+      <static>true</static>
+      <pose>3 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_24'>
+      <static>true</static>
+      <pose>4.5 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_24'>
+      <static>true</static>
+      <pose>6 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_24'>
+      <static>true</static>
+      <pose>9 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_7_24'>
+      <static>true</static>
+      <pose>10.5 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_24'>
+      <static>true</static>
+      <pose>12 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_24'>
+      <static>true</static>
+      <pose>13.5 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_24'>
+      <static>true</static>
+      <pose>15 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_24'>
+      <static>true</static>
+      <pose>18 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_24'>
+      <static>true</static>
+      <pose>19.5 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_24'>
+      <static>true</static>
+      <pose>21 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_24'>
+      <static>true</static>
+      <pose>24 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_24'>
+      <static>true</static>
+      <pose>27 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_24'>
+      <static>true</static>
+      <pose>28.5 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_24'>
+      <static>true</static>
+      <pose>30 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_24'>
+      <static>true</static>
+      <pose>33 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_23_24'>
+      <static>true</static>
+      <pose>34.5 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_24'>
+      <static>true</static>
+      <pose>36 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_24'>
+      <static>true</static>
+      <pose>39 36 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_25'>
+      <static>true</static>
+      <pose>0 37.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_25'>
+      <static>true</static>
+      <pose>15 37.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_25'>
+      <static>true</static>
+      <pose>24 37.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_25'>
+      <static>true</static>
+      <pose>39 37.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_0_26'>
+      <static>true</static>
+      <pose>0 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_1_26'>
+      <static>true</static>
+      <pose>1.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_2_26'>
+      <static>true</static>
+      <pose>3 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_3_26'>
+      <static>true</static>
+      <pose>4.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_4_26'>
+      <static>true</static>
+      <pose>6 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_5_26'>
+      <static>true</static>
+      <pose>7.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_26'>
+      <static>true</static>
+      <pose>9 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_7_26'>
+      <static>true</static>
+      <pose>10.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_26'>
+      <static>true</static>
+      <pose>12 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_9_26'>
+      <static>true</static>
+      <pose>13.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_26'>
+      <static>true</static>
+      <pose>15 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_11_26'>
+      <static>true</static>
+      <pose>16.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_26'>
+      <static>true</static>
+      <pose>18 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_13_26'>
+      <static>true</static>
+      <pose>19.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_26'>
+      <static>true</static>
+      <pose>21 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_26'>
+      <static>true</static>
+      <pose>22.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_16_26'>
+      <static>true</static>
+      <pose>24 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_17_26'>
+      <static>true</static>
+      <pose>25.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_18_26'>
+      <static>true</static>
+      <pose>27 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_19_26'>
+      <static>true</static>
+      <pose>28.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_20_26'>
+      <static>true</static>
+      <pose>30 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_21_26'>
+      <static>true</static>
+      <pose>31.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_22_26'>
+      <static>true</static>
+      <pose>33 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_23_26'>
+      <static>true</static>
+      <pose>34.5 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_24_26'>
+      <static>true</static>
+      <pose>36 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_26_26'>
+      <static>true</static>
+      <pose>39 39 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>
