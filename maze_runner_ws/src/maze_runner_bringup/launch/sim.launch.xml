@@ -1,11 +1,10 @@
 <launch>
-    <let name="rviz_config_path" value="$(find-pkg-share maze_runner_description)/rviz/urdf_config.rviz" />
-
-    <let name="gazebo_config_path" value="$(find-pkg-share maze_runner_bringup)/config/gazebo_bridge.yaml" />
-
+    <arg name="use_controller" default="false" />
     <arg name="world_file" default="$(find-pkg-share maze_runner_gazebo)/worlds/random_maze_cpp.sdf" />
-
     <arg name="robot_desc" default="$(command 'xacro $(find-pkg-share maze_runner_description)/urdf/maze_runner.urdf.xacro')" />
+
+    <let name="rviz_config_path" value="$(find-pkg-share maze_runner_description)/rviz/urdf_config.rviz" />
+    <let name="gazebo_config_path" value="$(find-pkg-share maze_runner_bringup)/config/gazebo_bridge.yaml" />
 
     <node pkg="robot_state_publisher" exec="robot_state_publisher" name="robot_state_publisher">
         <param name="robot_description" value="$(var robot_desc)" />
@@ -23,5 +22,15 @@
 
     <node pkg="ros_gz_sim" exec="create" output="screen"
           args="-world maze_world -topic robot_description -name maze_runner -allow_renaming true -x 1.5 -y 1.5 -z 0.2" />
+
+    <group if="$(var use_controller)">
+        <node pkg="joy" exec="joy_node" name="joy_node" output="screen">
+            <param name="dev" value="/dev/input/js0" /> 
+        </node>
+    </group>
+
+    <node pkg="maze_runner_core" exec="maze_runner_node" name="maze_runner_node" output="screen">
+        <param name="use_controller" value="$(var use_controller)" />
+    </node>
 
 </launch>

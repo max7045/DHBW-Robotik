@@ -12,6 +12,16 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 
+
+add_executable(maze_runner_node src/maze_runner_node.cpp)
+ament_target_dependencies(maze_runner_node rclcpp sensor_msgs geometry_msgs)
+
+# Lege den Installationsort fest
+install(TARGETS
+  maze_runner_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights

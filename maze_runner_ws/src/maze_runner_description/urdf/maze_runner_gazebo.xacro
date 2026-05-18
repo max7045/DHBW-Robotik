@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo reference="base_link">
+    </gazebo>
+
+    <gazebo>
+        <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+            <left_joint>left_wheel_joint</left_joint>
+            <right_joint>right_wheel_joint</right_joint>
+            <wheel_separation>0.35</wheel_separation>
+            <wheel_radius>0.05</wheel_radius>
+            <topic>cmd_vel</topic> 
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_footprint</child_frame_id>
+        </plugin>
+    </gazebo>
+
+    <gazebo>
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+        </plugin>
+    </gazebo>
+
+    <gazebo reference="lidar_link">
+        <sensor name="lidar" type="gpu_lidar">
+            <topic>scan</topic>
+            <update_rate>10</update_rate>
+            <gz_frame_id>lidar_link</gz_frame_id>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>      
+                        <resolution>1</resolution>
+                        <min_angle>-3.14159</min_angle> 
+                        <max_angle>3.14159</max_angle>  
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.15</min> 
+                    <max>8.0</max>  
+                </range>
+            </ray>
+            <always_on>1</always_on>
+            <visualize>true</visualize> 
+        </sensor>
+    </gazebo>
+    
+    <gazebo>
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+            <render_engine>ogre2</render_engine>
+        </plugin>
+    </gazebo>
+
+</robot>
