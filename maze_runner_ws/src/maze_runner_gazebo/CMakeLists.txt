@@ -11,9 +11,12 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-install(DIRECTORY worlds
+install(DIRECTORY worlds textures
   DESTINATION share/${PROJECT_NAME}
 )
+
+add_executable(generate_maze src/generate_maze.cpp)
+install(TARGETS generate_maze DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

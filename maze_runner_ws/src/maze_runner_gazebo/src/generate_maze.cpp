@@ -51,7 +51,7 @@ vector<vector<int>> generate_maze_grid(int width, int height) {
 }
 
 // Wandelt das 2D-Raster in eine Gazebo SDF-Datei um
-void export_to_sdf(const vector<vector<int>>& grid, const string& filename) {
+void export_to_sdf(const vector<vector<int>>& grid, const string& filename, const string& texture_path) {
     double wall_size = 1.5;
     ofstream sdf_file(filename);
 
@@ -82,7 +82,21 @@ void export_to_sdf(const vector<vector<int>>& grid, const string& filename) {
                 sdf_file << "      <link name='link'>\n";
                 sdf_file << "        <collision name='collision'><geometry><box><size>" << wall_size << " " << wall_size << " " << wall_size << "</size></box></geometry></collision>\n";
                 sdf_file << "        <visual name='visual'><geometry><box><size>" << wall_size << " " << wall_size << " " << wall_size << "</size></box></geometry>\n";
-                sdf_file << "          <material><ambient>0.3 0.3 0.3 1</ambient></material>\n";
+                if (!texture_path.empty()) 
+                {
+                    sdf_file << "          <material>\n";
+                    sdf_file << "            <ambient>0.8 0.8 0.8 1</ambient>\n"; // Helligkeit
+                    sdf_file << "            <diffuse>0.8 0.8 0.8 1</diffuse>\n";
+                    sdf_file << "            <pbr>\n";
+                    sdf_file << "              <metal>\n";
+                    sdf_file << "                <albedo_map>file://" << texture_path << "</albedo_map>\n";
+                    sdf_file << "                <roughness>0.9</roughness>\n"; // Ziegelsteine spiegeln kaum
+                    sdf_file << "              </metal>\n";
+                    sdf_file << "            </pbr>\n";
+                    sdf_file << "          </material>\n";
+                }else {
+                    sdf_file << "          <material><ambient>0.3 0.3 0.3 1</ambient></material>\n";
+                }
                 sdf_file << "        </visual>\n      </link>\n    </model>\n";
             }
         }
@@ -93,13 +107,18 @@ void export_to_sdf(const vector<vector<int>>& grid, const string& filename) {
     cout << "Welt erfolgreich generiert: " << filename << endl;
 }
 
-int main() {
+int main(int argc, char* argv[]) {
+    string output_path = "../worlds/random_maze_cpp.sdf";
+    string texture_path = "";
+
+    // Argumente auslesen (Neu: Das dritte Argument ist der Bildpfad)
+    if (argc >= 2) output_path = argv[1];
+    if (argc >= 3) texture_path = argv[2];
     // Generiere Labyrinth-Matrix (17x17)
     vector<vector<int>> maze_grid = generate_maze_grid(17, 17);
     
     // Speichere das Ergebnis direkt im worlds-Ordner
-    string output_path = "../worlds/random_maze_cpp.sdf";
-    export_to_sdf(maze_grid, output_path);
+    export_to_sdf(maze_grid, output_path, texture_path);
 
     return 0;
 }
