@@ -24,6 +24,6 @@ gz sim ../worlds/random_maze_cpp.sdf
 Um das komplette ROS 2 Projekt (Labyrinth inklusive Roboter) zu starten, führe folgende Befehle im Hauptverzeichnis des Workspaces aus:
 
 ```bash
-bash -c ./run.bash [-l] [-c] [-no-textures]
+bash -x ./run.bash [-l] [-c] [-no-textures]
 ```
 
