@@ -35,7 +35,6 @@
         <collision>
             <geometry><sphere radius="0.025"/></geometry>
         </collision>
-        <surface><friction><ode><mu>0.0</mu><mu2>0.0</mu2></ode></friction></surface>
         <xacro:sphere_inertia m="0.5" r="0.025" o_xyz="0 0 0" o_rpy="0 0 0" />
     </link>
 

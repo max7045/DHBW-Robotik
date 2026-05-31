@@ -21,6 +21,12 @@
         </plugin>
     </gazebo>
 
+    <gazebo reference="caster_link">
+        <mu>0.0</mu>
+        <mu2>0.0</mu2>
+        <minDepth>0.001</minDepth>
+    </gazebo>
+
     <gazebo reference="lidar_link">
         <sensor name="lidar" type="gpu_lidar">
             <topic>scan</topic>
