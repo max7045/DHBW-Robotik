@@ -35,7 +35,7 @@ public:
         this->declare_parameter("dist_free_path", 1.2);      // Ab wann ein seitlicher Gang als "frei" gilt
         this->declare_parameter("exit_open_space_dist", 2.0);// Schwellenwert zur Erkennung des Ausgangs
         
-        // Regler-Gewichte (PID)
+        // Regler-Gewichte (PD)
         this->declare_parameter("kp_heading", 1.0);          // Staerke des Kompass-Reglers (Parallelfahrt)
         this->declare_parameter("kp_center", 0.3);           // Staerke der Wand-Zentrierung
         this->declare_parameter("kd_center", 0.6);           // Daempfung (verhindert Schlangenlinien)

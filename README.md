@@ -51,7 +51,8 @@ Der Automatik-Modus (Standard-Modus) kann jederzeit mit der Taste `A` aktiviert 
 Controller-Steuerung:
 - *Linker-Stick*: Vorwärts/Rückwärts
 - *Rechter-Stick*: Links/Rechts
-- *A-Taste*: Automatik-Modus aktivieren
+- *A-Taste*: Modus umschalten (Manuell / Automatik)
+- *B-Taste*: Simulation zurücksetzen (Roboter zum Startpunkt teleportieren)
 
 <br>
 
@@ -92,6 +93,22 @@ Aufteilung der ROS-Pakete:
 - `maze_runner_description`: URDF-Modelle des Roboters und RViz-Konfiguration zur Visualisierung
 - `maze_runner_gazebo`: Gazebo-Welt (Labyrinth) inkl. Skript zur Generierung
 
+Eingebundene Pakete:
+- `joy` &rarr; Einlesen von Gamepad-Eingaben für die manuelle Steuerung
+- `slam_toolbox` &rarr; Erstellung der 2D-Karte aus den LiDAR-Daten
+- `xacro` &rarr; Generierung des URDF-Robotermodells
+- `rviz2` &rarr; Visualisierung von Sensordaten, Karte und Roboter
+- `ros_gz_sim` &rarr; Ausführung der Gazebo-Simulation
+- `ros_gz_bridge` &rarr; Austausch von Topics (Sensordaten, Steuerung) zwischen ROS 2 und Gazebo
+- `robot_state_publisher` &rarr; Veröffentlichung des Roboterzustands und der Koordinatensysteme (TF)
+
 ## ⚙️ Funktionsweise
-- Der Roboter wird am Eingang des Labyrinths platziert.
-- Die 2D-Karte wird fortlaufend anhand der LiDAR-Daten erstellt.
+- Der Roboter wird (automatisch) am Eingang des Labyrinths platziert.
+- Eine 2D-Karte wird fortlaufend anhand der LiDAR-Daten erstellt.
+- Der Roboter navigiert anhand der LiDAR-Daten durch das Labyrinth. Dabei fährt er solange geradeaus, bis er auf ein Hindernis (Wand) trifft. Ein PD-Regler sorgt dabei für die Zentrierung des Roboters im Gang.
+- Stößt der Roboter auf eine Wand, stoppt er und prüft die seitlichen Distanzen:
+   - Ist der Weg **links** frei, dreht er sich um 90° nach links.
+   - Ist links blockiert, aber **rechts** frei, dreht er sich um 90° nach rechts.
+   - Sind beide Wege blockiert (Sackgasse), dreht er sich um 180° um.
+- **TODO: Korrektur sobald Wegfindung implementiert**
+- Sobald der LiDAR-Sensor im vorderen Halbfeld (180°) kein Hindernis mehr innerhalb eines Schwellenwerts (2 Einheiten) erkennt, stoppt er (Annahme: Ausgang gefunden).
