@@ -26,12 +26,12 @@ public:
         this->declare_parameter("angular_axis", 2);         // Drehung (rechter Stick horizontal)
 
         // Antrieb
-        this->declare_parameter("speed_linear", 0.8);        // Vorwaertsgeschwindigkeit
+        this->declare_parameter("speed_linear", 1.0);        // Vorwaertsgeschwindigkeit
         this->declare_parameter("speed_turn_min", 0.2);      // Min. Drehgeschwindigkeit (gegen Steckenbleiben)
         this->declare_parameter("speed_turn_max", 0.6);      // Max. Drehgeschwindigkeit
         
         // Sensorik & Distanzen
-        this->declare_parameter("dist_turn", 0.75);          // Bremsdistanz vor einer Wand
+        this->declare_parameter("dist_turn", 0.85);          // Bremsdistanz vor einer Wand
         this->declare_parameter("dist_free_path", 1.2);      // Ab wann ein seitlicher Gang als "frei" gilt
         this->declare_parameter("exit_open_space_dist", 2.0);// Schwellenwert zur Erkennung des Ausgangs
         
@@ -241,9 +241,7 @@ private:
             auto_state_ = RobotState::TURNING;
             twist.linear.x = 0.0;
             
-            if (dist_left > free_path) target_yaw_ += (M_PI / 2.0);   ble kd_c = this->get_parameter("kd_center").as_double();
-
-            twist.angular.z = (kp_h * yaw_error) + (kp_c * center_error) + (kd_c * d_   // Links frei
+            if (dist_left > free_path) target_yaw_ += (M_PI / 2.0);      // Links frei
             else if (dist_right > free_path) target_yaw_ -= (M_PI / 2.0);// Rechts frei
             else target_yaw_ += M_PI;                                    // Sackgasse
             
