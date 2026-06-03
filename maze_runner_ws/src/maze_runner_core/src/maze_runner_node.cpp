@@ -45,41 +45,8 @@ public:
         
         current_mode_ = ctrl_params_.start_manual ? RobotMode::MANUAL : RobotMode::AUTONOMOUS;
         RCLCPP_INFO(this->get_logger(), "Startmodus: %s", ctrl_params_.start_manual ? "MANUELL" : "AUTONOM");
-
-<<<<<<< HEAD
-        // TF2 für Kompass-Lokalisierung initialisieren
-=======
-        // Controller
-        this->declare_parameter("toggle_mode_button", 0);   // Modus wechseln (A-Taste) 
-        this->declare_parameter("reset_button", 1);         // Reset & Teleport (B-Taste)
-        this->declare_parameter("linear_axis", 1);          // Vor-/Rueckwaerts (linker Stick vertikal)
-        this->declare_parameter("angular_axis", 2);         // Drehung (rechter Stick horizontal)
-
-        // Antrieb
-        this->declare_parameter("speed_linear", 1.0);        // Vorwaertsgeschwindigkeit
-        this->declare_parameter("speed_turn_min", 0.2);      // Min. Drehgeschwindigkeit (gegen Steckenbleiben)
-        this->declare_parameter("speed_turn_max", 0.6);      // Max. Drehgeschwindigkeit
         
-        // Sensorik & Distanzen
-        this->declare_parameter("dist_turn", 0.85);          // Bremsdistanz vor einer Wand
-        this->declare_parameter("dist_free_path", 1.2);      // Ab wann ein seitlicher Gang als "frei" gilt
-        this->declare_parameter("exit_open_space_dist", 2.0);// Schwellenwert zur Erkennung des Ausgangs
-        
-        // Regler-Gewichte (PD)
-        this->declare_parameter("kp_heading", 1.0);          // Staerke des Kompass-Reglers (Parallelfahrt)
-        this->declare_parameter("kp_center", 0.3);           // Staerke der Wand-Zentrierung
-        this->declare_parameter("kd_center", 0.6);           // Daempfung (verhindert Schlangenlinien)
-
-        // Startmodus evaluieren
-        this->declare_parameter<bool>("use_controller", false);
-        bool use_controller;
-        this->get_parameter("use_controller", use_controller);
-        
-        current_mode_ = use_controller ? RobotMode::MANUAL : RobotMode::AUTONOMOUS;
-        RCLCPP_INFO(this->get_logger(), "Startmodus: %s", use_controller ? "MANUELL" : "AUTONOM");
-
         // TF2 initialisieren fuer die Kompass-Lokalisierung
->>>>>>> de009907de19deb4766083e9b03dd715a5ba6cc9
         tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
         tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
