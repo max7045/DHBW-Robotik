@@ -334,9 +334,47 @@
         </visual>
       </link>
     </model>
-    <model name='wall_12_1'>
+    <model name='wall_2_1'>
       <static>true</static>
-      <pose>18 1.5 0.75 0 0 0</pose>
+      <pose>3 1.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_1'>
+      <static>true</static>
+      <pose>9 1.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_1'>
+      <static>true</static>
+      <pose>15 1.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -391,47 +429,9 @@
         </visual>
       </link>
     </model>
-    <model name='wall_1_2'>
-      <static>true</static>
-      <pose>1.5 3 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_2_2'>
       <static>true</static>
       <pose>3 3 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
-    <model name='wall_3_2'>
-      <static>true</static>
-      <pose>4.5 3 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -467,47 +467,9 @@
         </visual>
       </link>
     </model>
-    <model name='wall_5_2'>
-      <static>true</static>
-      <pose>7.5 3 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_6_2'>
       <static>true</static>
       <pose>9 3 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
-    <model name='wall_7_2'>
-      <static>true</static>
-      <pose>10.5 3 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -695,9 +657,47 @@
         </visual>
       </link>
     </model>
-    <model name='wall_10_3'>
+    <model name='wall_4_3'>
       <static>true</static>
-      <pose>15 4.5 0.75 0 0 0</pose>
+      <pose>6 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_6_3'>
+      <static>true</static>
+      <pose>9 4.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_3'>
+      <static>true</static>
+      <pose>21 4.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -809,9 +809,9 @@
         </visual>
       </link>
     </model>
-    <model name='wall_7_4'>
+    <model name='wall_8_4'>
       <static>true</static>
-      <pose>10.5 6 0.75 0 0 0</pose>
+      <pose>12 6 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -828,9 +828,9 @@
         </visual>
       </link>
     </model>
-    <model name='wall_8_4'>
+    <model name='wall_9_4'>
       <static>true</static>
-      <pose>12 6 0.75 0 0 0</pose>
+      <pose>13.5 6 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1018,9 +1018,9 @@
         </visual>
       </link>
     </model>
-    <model name='wall_14_5'>
+    <model name='wall_8_5'>
       <static>true</static>
-      <pose>21 7.5 0.75 0 0 0</pose>
+      <pose>12 7.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1059,6 +1059,25 @@
     <model name='wall_0_6'>
       <static>true</static>
       <pose>0 9 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_1_6'>
+      <static>true</static>
+      <pose>1.5 9 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1154,25 +1173,6 @@
     <model name='wall_8_6'>
       <static>true</static>
       <pose>12 9 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
-    <model name='wall_9_6'>
-      <static>true</static>
-      <pose>13.5 9 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1379,9 +1379,28 @@
         </visual>
       </link>
     </model>
-    <model name='wall_14_7'>
+    <model name='wall_10_7'>
       <static>true</static>
-      <pose>21 10.5 0.75 0 0 0</pose>
+      <pose>15 10.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_7'>
+      <static>true</static>
+      <pose>18 10.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1512,25 +1531,6 @@
         </visual>
       </link>
     </model>
-    <model name='wall_7_8'>
-      <static>true</static>
-      <pose>10.5 12 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_8_8'>
       <static>true</static>
       <pose>12 12 0.75 0 0 0</pose>
@@ -1569,25 +1569,6 @@
         </visual>
       </link>
     </model>
-    <model name='wall_11_8'>
-      <static>true</static>
-      <pose>16.5 12 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_12_8'>
       <static>true</static>
       <pose>18 12 0.75 0 0 0</pose>
@@ -1610,6 +1591,25 @@
     <model name='wall_14_8'>
       <static>true</static>
       <pose>21 12 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_15_8'>
+      <static>true</static>
+      <pose>22.5 12 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1702,6 +1702,25 @@
         </visual>
       </link>
     </model>
+    <model name='wall_8_9'>
+      <static>true</static>
+      <pose>12 13.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
     <model name='wall_10_9'>
       <static>true</static>
       <pose>15 13.5 0.75 0 0 0</pose>
@@ -1721,9 +1740,9 @@
         </visual>
       </link>
     </model>
-    <model name='wall_12_9'>
+    <model name='wall_14_9'>
       <static>true</static>
-      <pose>18 13.5 0.75 0 0 0</pose>
+      <pose>21 13.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1762,25 +1781,6 @@
     <model name='wall_0_10'>
       <static>true</static>
       <pose>0 15 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
-    <model name='wall_1_10'>
-      <static>true</static>
-      <pose>1.5 15 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -1892,25 +1892,6 @@
         </visual>
       </link>
     </model>
-    <model name='wall_9_10'>
-      <static>true</static>
-      <pose>13.5 15 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_10_10'>
       <static>true</static>
       <pose>15 15 0.75 0 0 0</pose>
@@ -1987,25 +1968,6 @@
         </visual>
       </link>
     </model>
-    <model name='wall_15_10'>
-      <static>true</static>
-      <pose>22.5 15 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_16_10'>
       <static>true</static>
       <pose>24 15 0.75 0 0 0</pose>
@@ -2063,9 +2025,47 @@
         </visual>
       </link>
     </model>
-    <model name='wall_8_11'>
+    <model name='wall_6_11'>
       <static>true</static>
-      <pose>12 16.5 0.75 0 0 0</pose>
+      <pose>9 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_10_11'>
+      <static>true</static>
+      <pose>15 16.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_12_11'>
+      <static>true</static>
+      <pose>18 16.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -2177,25 +2177,6 @@
         </visual>
       </link>
     </model>
-    <model name='wall_5_12'>
-      <static>true</static>
-      <pose>7.5 18 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_6_12'>
       <static>true</static>
       <pose>9 18 0.75 0 0 0</pose>
@@ -2291,25 +2272,6 @@
         </visual>
       </link>
     </model>
-    <model name='wall_13_12'>
-      <static>true</static>
-      <pose>19.5 18 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_14_12'>
       <static>true</static>
       <pose>21 18 0.75 0 0 0</pose>
@@ -2367,9 +2329,47 @@
         </visual>
       </link>
     </model>
+    <model name='wall_2_13'>
+      <static>true</static>
+      <pose>3 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
     <model name='wall_6_13'>
       <static>true</static>
       <pose>9 19.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_8_13'>
+      <static>true</static>
+      <pose>12 19.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -2481,6 +2481,25 @@
         </visual>
       </link>
     </model>
+    <model name='wall_3_14'>
+      <static>true</static>
+      <pose>4.5 21 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
     <model name='wall_4_14'>
       <static>true</static>
       <pose>6 21 0.75 0 0 0</pose>
@@ -2538,47 +2557,9 @@
         </visual>
       </link>
     </model>
-    <model name='wall_7_14'>
-      <static>true</static>
-      <pose>10.5 21 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
     <model name='wall_8_14'>
       <static>true</static>
       <pose>12 21 0.75 0 0 0</pose>
-      <link name='link'>
-        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
-        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <pbr>
-              <metal>
-                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
-                <roughness>0.9</roughness>
-              </metal>
-            </pbr>
-          </material>
-        </visual>
-      </link>
-    </model>
-    <model name='wall_9_14'>
-      <static>true</static>
-      <pose>13.5 21 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
@@ -2709,9 +2690,28 @@
         </visual>
       </link>
     </model>
-    <model name='wall_2_15'>
+    <model name='wall_8_15'>
       <static>true</static>
-      <pose>3 22.5 0.75 0 0 0</pose>
+      <pose>12 22.5 0.75 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
+        <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <pbr>
+              <metal>
+                <albedo_map>file:///home/max/Repos/DHBW-Robotik/maze_runner_ws/src/maze_runner_gazebo/textures/simple_box.png</albedo_map>
+                <roughness>0.9</roughness>
+              </metal>
+            </pbr>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='wall_14_15'>
+      <static>true</static>
+      <pose>21 22.5 0.75 0 0 0</pose>
       <link name='link'>
         <collision name='collision'><geometry><box><size>1.5 1.5 1.5</size></box></geometry></collision>
         <visual name='visual'><geometry><box><size>1.5 1.5 1.5</size></box></geometry>
