@@ -107,11 +107,11 @@ Installation erfolgt mit `rosdep install --from-paths src --ignore-src -r` im Ha
 
 ## ⚙️ Funktionsweise
 - Der Roboter wird (automatisch) am Eingang des Labyrinths platziert.
-- Eine 2D-Karte wird fortlaufend anhand der LiDAR-Daten erstellt.
-- Der Roboter navigiert anhand der LiDAR-Daten durch das Labyrinth. Dabei fährt er solange geradeaus, bis er auf ein Hindernis (Wand) trifft. Ein PD-Regler sorgt dabei für die Zentrierung des Roboters im Gang.
-- Stößt der Roboter auf eine Wand, stoppt er und prüft die seitlichen Distanzen:
-   - Ist der Weg **links** frei, dreht er sich um 90° nach links.
-   - Ist links blockiert, aber **rechts** frei, dreht er sich um 90° nach rechts.
-   - Sind beide Wege blockiert (Sackgasse), dreht er sich um 180° um.
-- **TODO: Korrektur sobald Wegfindung implementiert**
+- Eine 2D-Karte wird fortlaufend anhand der LiDAR-Daten erstellt. Dabei merkt sich der Roboter anhand der Karte wo er schon entlang gefahren ist.
+- Der Roboter navigiert anhand der LiDAR-Daten durch das Labyrinth. Ein PD-Regler sorgt dabei für die Zentrierung des Roboters im Gang.
+- Der Roboter fährt solange geradeaus bis er zu einer Kreuzung oder Sackgasse kommt. Dort wählt er den Weg, den er bisher am seltensten befahren hat (basierend auf dem **Trémaux-Algorithmus**):
+   - Gibt es mehrere gleichwertige Wege (z. B. *noch nie befahren*), hat *Geradeaus* die höchste Priorität.
+   - Ist *Geradeaus* blockiert (z. B. durch eine Wand) oder schlechter bewertet, probiert er es nach *Links*.
+   - Als dritte Wahl weicht er nach *Rechts* aus.
+   - Sind alle Wege blockiert oder er befindet sich in einer Sackgasse, dreht er sich um 180° um und fährt zurück bis zur nächsten Kreuzung.
 - Sobald der LiDAR-Sensor im vorderen Halbfeld (180°) kein Hindernis mehr innerhalb eines Schwellenwerts (2 Einheiten) erkennt, stoppt er (Annahme: Ausgang gefunden).
