@@ -38,6 +38,7 @@ Das Skript hat folgende (optionale) Parameter:
 - `-l`: Ein (neues) Labyrinth generieren &rarr; Ansonsten wird die zuletzt generierte Welt verwendet
 - `-c`: Controller-Modus aktivieren (manuelle Steuerung)
 - `-no-textures`: Keine Texturen verwenden (in Gazebo) &rarr; Bessere Performance
+   - Muss mit `-l` kombiniert werden, damit die Welt ohne Texturen generiert wird
 
 **Achtung**: Ist beim Start kein Labyrinth vorhanden und der Parameter `-l` nicht gesetzt, wird Gazebo nicht gestartet und die Simulation ist nicht zielführend!
 
@@ -101,6 +102,8 @@ Eingebundene Pakete:
 - `ros_gz_sim` &rarr; Ausführung der Gazebo-Simulation
 - `ros_gz_bridge` &rarr; Austausch von Topics (Sensordaten, Steuerung) zwischen ROS 2 und Gazebo
 - `robot_state_publisher` &rarr; Veröffentlichung des Roboterzustands und der Koordinatensysteme (TF)
+
+Installation erfolgt mit `rosdep install --from-paths src --ignore-src -r` im Hauptverzeichnis des Workspaces &rarr; Lädt notwendige Pakete aus der `package.xml`-Datei.
 
 ## ⚙️ Funktionsweise
 - Der Roboter wird (automatisch) am Eingang des Labyrinths platziert.
