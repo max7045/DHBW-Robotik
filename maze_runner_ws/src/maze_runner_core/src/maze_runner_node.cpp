@@ -5,7 +5,6 @@
 #include "tf2_ros/transform_listener.h"
 #include "tf2_ros/buffer.h"
 #include <tf2/LinearMath/Quaternion.h>
-#include <tf2/LinearMath/Matrix3x3.h>
 #include <cmath>
 #include <algorithm>
 #include <map>
@@ -98,10 +97,10 @@ private:
         ctrl_params_.axis_angular = this->declare_parameter("angular_axis", 2);
         ctrl_params_.start_manual = this->declare_parameter("use_controller", false);
 
-        drive_params_.v_linear = this->declare_parameter("speed_linear", 1.0);
+        drive_params_.v_linear = this->declare_parameter("speed_linear", 1.1);
         drive_params_.w_min = this->declare_parameter("speed_turn_min", 0.2);
         drive_params_.w_max = this->declare_parameter("speed_turn_max", 0.6);
-        drive_params_.dist_turn = this->declare_parameter("dist_turn", 0.85);
+        drive_params_.dist_turn = this->declare_parameter("dist_turn", 0.75);
         drive_params_.dist_free_path = this->declare_parameter("dist_free_path", 1.2);
         drive_params_.exit_thresh = this->declare_parameter("exit_open_space_dist", 2.0);
 
@@ -327,7 +326,7 @@ private:
         twist.linear.x = drive_params_.v_linear; 
         
         // Notbremse vor Wänden
-        if (dist_front < maze_scale_ * 0.4) twist.linear.x = 0.0;
+        if (dist_front < maze_scale_ * 0.3) twist.linear.x = 0.0;
 
         double yaw_error = target_yaw_ - current_yaw_;
         yaw_error = std::atan2(std::sin(yaw_error), std::cos(yaw_error));
