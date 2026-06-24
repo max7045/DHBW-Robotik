@@ -11,7 +11,7 @@
 
 // Definition der Roboter-Zustände
 enum class RobotMode { MANUAL, AUTONOMOUS };
-enum class RobotState { DRIVE_FORWARD, TURNING, GOAL_REACHED };
+enum class RobotState { DRIVE_FORWARD, DECELERATING, TURNING, GOAL_REACHED };
 
 // Parameter-Strukturen für sauberes Datenmanagement
 struct ControllerParams {
@@ -43,7 +43,7 @@ public:
         load_parameters();
         
         current_mode_ = ctrl_params_.start_manual ? RobotMode::MANUAL : RobotMode::AUTONOMOUS;
-        RCLCPP_INFO(this->get_logger(), "Startmodus: %s", ctrl_params_.start_manual ? "MANUELL" : "AUTONOM");
+        RCLCPP_INFO(this->get_logger(), "\033[1;34mStartmodus: %s\033[0m", ctrl_params_.start_manual ? "MANUELL" : "AUTONOM");
         
         // TF2 initialisieren fuer die Kompass-Lokalisierung
         tf_buffer_ = std::make_unique<tf2_ros::Buffer>(this->get_clock());
@@ -55,6 +55,8 @@ public:
             std::bind(&MazeRunnerControl::scan_callback, this, std::placeholders::_1));
         joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy>("/joy", 10, 
             std::bind(&MazeRunnerControl::joy_callback, this, std::placeholders::_1));
+
+        RCLCPP_INFO(this->get_logger(), "\033[1;34mMazeRunnerControl Node erfolgreich initialisiert.\033[0m");
     }
 
 private:
@@ -74,11 +76,17 @@ private:
     
     // Labyrinth-Gedächtnis (Trémaux)
     double maze_scale_ = 0.0;
-    bool evaluated_this_cell_ = false;
+    bool evaluated_this_cell_ = true; // Startet auf true, um die Startbox nicht fälschlicherweise zu evaluieren
     std::map<std::pair<int, int>, int> grid_memory_;
+    bool grid_initialized_ = false;
+    int last_gx_ = 0;
+    int last_gy_ = 0;
 
     bool last_btn_a_state_ = false;
     bool last_btn_b_state_ = false;
+    rclcpp::Time last_reset_time_;
+    bool is_reset_time_set_ = false;
+    rclcpp::Time decel_start_time_;
 
     // ROS 2 Objekte
     std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
@@ -135,23 +143,110 @@ private:
 
     // Hauptschleife für die autonome Navigation, strukturiert als Pipeline
     void scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr msg) {
-        if (current_mode_ != RobotMode::AUTONOMOUS || auto_state_ == RobotState::GOAL_REACHED) {
+        if (current_mode_ != RobotMode::AUTONOMOUS) {
+            return;
+        }
+        if (auto_state_ == RobotState::GOAL_REACHED) {
             return;
         }
 
-        if (!measure_maze_scale(msg)) return; // Warten auf Gangerkennung
-        if (check_goal_reached(msg)) return;  // Prüfen ob Ausgang erreicht
-        if (!update_robot_pose()) return;     // Warten auf TF-Daten
+        // 1. Sicherheits-Check: Leere Laserscans ignorieren (Schutz vor Absturz bei leeren Daten)
+        if (msg->ranges.empty()) {
+            return;
+        }
+
+        // 2. Startup-/Reset-Verzögerung (2.0 Sekunden Sim-Zeit):
+        // Verhindert das Auslesen fehlerhafter Sensordaten während des Spawns/Drops
+        // oder Teleports, und gibt EKF/TF-Tree Zeit zum Einschwingen.
+        if (!is_reset_time_set_) {
+            // Warte, bis der Clock-Empfänger die erste gültige Simulationszeit geliefert hat (> 0)
+            if (this->now().nanoseconds() > 0) {
+                last_reset_time_ = this->now();
+                is_reset_time_set_ = true;
+                is_initialized_ = false; // Bei Reset/Start neu initialisieren
+                RCLCPP_INFO(this->get_logger(), "\033[1;34mStabilisierungsphase gestartet. Warte 2s Sim-Zeit...\033[0m");
+            } else {
+                // Keine Uhrzeit vorhanden, zur Sicherheit stoppen und warten
+                geometry_msgs::msg::Twist stop_twist;
+                cmd_pub_->publish(stop_twist);
+                return;
+            }
+        }
+
+        double elapsed_seconds = (this->now() - last_reset_time_).seconds();
+        if (elapsed_seconds < 2.0) {
+            // Während der Stabilisierungsphase aktualisieren wir den Zielwinkel kontinuierlich,
+            // damit er sich an den voll eingeschwungenen EKF-Wert anpasst.
+            if (update_robot_pose()) {
+                target_yaw_ = std::round(current_yaw_ / (M_PI / 2.0)) * (M_PI / 2.0);
+                is_initialized_ = true;
+            }
+            geometry_msgs::msg::Twist stop_twist;
+            cmd_pub_->publish(stop_twist);
+            return;
+        }
+
+        // Einmalige Logmeldung, wenn die Stabilisierung beendet ist
+        static bool stabilization_done_logged = false;
+        if (!stabilization_done_logged) {
+            RCLCPP_INFO(this->get_logger(), "\033[1;34mStabilisierungsphase beendet. Start der Navigation.\033[0m");
+            stabilization_done_logged = true;
+        }
+
+        if (maze_scale_ <= 0.0) {
+            if (!measure_maze_scale(msg)) {
+                // Nur alle 2 Sekunden loggen, um Fluten zu verhindern
+                static double last_scale_log_time = 0.0;
+                if (this->now().seconds() - last_scale_log_time > 2.0) {
+                    float dl = get_min_dist_cone(msg, M_PI / 2.0, 5);
+                    float dr = get_min_dist_cone(msg, -M_PI / 2.0, 5);
+                    RCLCPP_INFO(this->get_logger(), "\033[1;34mWarte auf Gangerkennung (Wände links/rechts)... dl: %.2f, dr: %.2f\033[0m", dl, dr);
+                    last_scale_log_time = this->now().seconds();
+                }
+                return;
+            }
+        }
+
+        if (check_goal_reached(msg)) {
+            RCLCPP_INFO(this->get_logger(), "\033[1;34mZiel erreicht laut Laserdaten.\033[0m");
+            return;
+        }
+
+        if (!update_robot_pose()) {
+            static double last_pose_log_time = 0.0;
+            if (this->now().seconds() - last_pose_log_time > 2.0) {
+                RCLCPP_WARN(this->get_logger(), "\033[1;34mWarte auf gültige TF-Daten (map/odom -> base_footprint)...\033[0m");
+                last_pose_log_time = this->now().seconds();
+            }
+            return;
+        }
+
+        // Einmalige Logmeldung nach erfolgreicher Pose-Initialisierung
+        static bool pose_init_logged = false;
+        if (!pose_init_logged) {
+            RCLCPP_INFO(this->get_logger(), "\033[1;34mTF-Pose erfolgreich empfangen. Position: (%.2f, %.2f), Yaw: %.2f\033[0m", 
+                        current_x_, current_y_, current_yaw_);
+            pose_init_logged = true;
+        }
+
+        // Gitter-Zellengrenzenerkennung zur Evaluierungssteuerung
+        update_grid_cell_tracking();
+
+        // Navigations-Loop logs (Blau)
+        log_navigation_status();
+
 
         auto twist = geometry_msgs::msg::Twist();
-
+  
         if (auto_state_ == RobotState::TURNING) {
             execute_turn(twist);
+        } else if (auto_state_ == RobotState::DECELERATING) {
+            execute_deceleration(twist);
         } else {
             evaluate_intersection(msg, twist);
             
             // Nur fahren, wenn keine neue Drehung eingeleitet wurde
-            if (auto_state_ != RobotState::TURNING) {
+            if (auto_state_ == RobotState::DRIVE_FORWARD) {
                 drive_and_center(msg, twist);
             }
         }
@@ -169,8 +264,10 @@ private:
         float dr = get_min_dist_cone(msg, -M_PI / 2.0, 5);
         
         if (dl < 5.0 && dr < 5.0) {
-            maze_scale_ = dl + dr;
-            RCLCPP_INFO(this->get_logger(), "Labyrinth skaliert: %.2f m", maze_scale_);
+            double measured = dl + dr;
+            // Snappen auf das nächste Vielfache von 0.5m, um Messrauschen zu eliminieren (z. B. 1.5m)
+            maze_scale_ = std::round(measured * 2.0) / 2.0;
+            RCLCPP_INFO(this->get_logger(), "\033[1;34mLabyrinth skaliert: %.2f m (gemessen: %.2f m)\033[0m", maze_scale_, measured);
             return true;
         }
         return false;
@@ -190,7 +287,7 @@ private:
         }
         
         if (min_front_dist > drive_params_.exit_thresh) {
-            RCLCPP_INFO(this->get_logger(), "ZIEL ERREICHT!");
+            RCLCPP_INFO(this->get_logger(), "\033[1;34mZIEL ERREICHT!\033[0m");
             auto_state_ = RobotState::GOAL_REACHED;
             cmd_pub_->publish(geometry_msgs::msg::Twist()); // Stoppen
             return true;
@@ -206,7 +303,9 @@ private:
         } catch (const tf2::TransformException &ex) {
             try { // Fallback auf Odom
                 tf = tf_buffer_->lookupTransform("odom", "base_footprint", tf2::TimePointZero);
-            } catch (const tf2::TransformException &ex2) { return false; }
+            } catch (const tf2::TransformException &ex2) {
+                return false;
+            }
         }
 
         current_x_ = tf.transform.translation.x;
@@ -218,18 +317,70 @@ private:
         double roll, pitch;
         m.getRPY(roll, pitch, current_yaw_);
 
-        // Startwinkel beim ersten Durchlauf speichern
-        if (!is_initialized_) {
-            target_yaw_ = current_yaw_;
-            is_initialized_ = true;
-        }
         return true;
+    }
+
+    // Aktualisiert das Gitterzellen-Tracking und setzt die Auswertung bei Zellwechsel zurueck
+    void update_grid_cell_tracking() {
+        if (maze_scale_ <= 0.0) {
+            return;
+        }
+
+        int current_gx = std::round(current_x_ / maze_scale_);
+        int current_gy = std::round(current_y_ / maze_scale_);
+
+        if (!grid_initialized_) {
+            last_gx_ = current_gx;
+            last_gy_ = current_gy;
+            grid_initialized_ = true;
+            return;
+        }
+
+        if (current_gx != last_gx_ || current_gy != last_gy_) {
+            RCLCPP_INFO(this->get_logger(), 
+                        "\033[1;34m[DEBUG] Zellwechsel erkannt: von (%d, %d) nach (%d, %d). Setze evaluated_this_cell auf false.\033[0m", 
+                        last_gx_, last_gy_, current_gx, current_gy);
+            evaluated_this_cell_ = false;
+            last_gx_ = current_gx;
+            last_gy_ = current_gy;
+        }
+    }
+
+    // Loggt den aktuellen Navigationsstatus in regelmaessigen Abstaenden (0.5s)
+    void log_navigation_status() {
+        if (maze_scale_ <= 0.0) {
+            return;
+        }
+
+        static double last_loop_log_time = 0.0;
+        double current_time = this->now().seconds();
+        if (current_time - last_loop_log_time > 0.5) {
+            double dx = current_x_ - (std::round(current_x_ / maze_scale_) * maze_scale_);
+            double dy = current_y_ - (std::round(current_y_ / maze_scale_) * maze_scale_);
+            double dist_longitudinal = dx * std::cos(target_yaw_) + dy * std::sin(target_yaw_);
+            double yaw_error = normalize_angle(target_yaw_ - current_yaw_);
+            
+            RCLCPP_INFO(this->get_logger(), 
+                        "\033[1;34m[DEBUG] Pose: (%.2f, %.2f) | Yaw: %.3f (Target: %.3f, Err: %.3f) | DistLong: %.3f | Eval: %d\033[0m",
+                        current_x_, current_y_, current_yaw_, target_yaw_, yaw_error, dist_longitudinal, evaluated_this_cell_);
+            last_loop_log_time = current_time;
+        }
+    }
+
+    // Verzögert das Fahrzeug bis zum Stillstand vor einer Drehung
+    void execute_deceleration(geometry_msgs::msg::Twist& twist) {
+        twist.linear.x = 0.0;
+        twist.angular.z = 0.0;
+
+        double elapsed = (this->now() - decel_start_time_).seconds();
+        if (elapsed >= 0.4) {
+            auto_state_ = RobotState::TURNING;
+        }
     }
 
     // Führt 90-Grad-Drehungen aus und beendet den Turn-State
     void execute_turn(geometry_msgs::msg::Twist& twist) {
-        double yaw_diff = target_yaw_ - current_yaw_;
-        yaw_diff = std::atan2(std::sin(yaw_diff), std::cos(yaw_diff)); // Normalisieren
+        double yaw_diff = normalize_angle(target_yaw_ - current_yaw_);
 
         if (std::abs(yaw_diff) < 0.01) {
             auto_state_ = RobotState::DRIVE_FORWARD; 
@@ -252,30 +403,43 @@ private:
         double center_x = current_gx * maze_scale_;
         double center_y = current_gy * maze_scale_;
         
-        double dist_to_center = std::hypot(current_x_ - center_x, current_y_ - center_y);
-
-        // Reset der Evaluierung, wenn wir die Zellmitte verlassen
-        if (dist_to_center > maze_scale_ * 0.35) {
-            evaluated_this_cell_ = false; 
-        }
-
-        // Nur im Zentrum einer Zelle entscheiden
-        if (dist_to_center >= 0.15 || evaluated_this_cell_) return;
-
-        evaluated_this_cell_ = true;
-        grid_memory_[{current_gx, current_gy}] += 1; 
+        // Berechnung des Abstands entlang der Fahrtrichtung (longitudinal)
+        double dx = current_x_ - center_x;
+        double dy = current_y_ - center_y;
+        double dist_longitudinal = dx * std::cos(target_yaw_) + dy * std::sin(target_yaw_);
 
         float dist_front = get_min_dist_cone(msg, 0.0, 5);
         float dist_left  = get_min_dist_cone(msg, M_PI / 2.0, 5);
         float dist_right = get_min_dist_cone(msg, -M_PI / 2.0, 5);
 
-        double open_thresh = maze_scale_ * 0.65; 
-        bool can_go_straight = (dist_front > open_thresh);
+        // Bestimme, ob wir nah genug am Zentrum sind, um eine Entscheidung zu treffen.
+        // Wir nutzen eine Kombination aus EKF-Distanz (für offene Kreuzungen) und 
+        // präziser LiDAR-Distanz zur Vorderwand (für Ecken/Sackgassen/T-Kreuzungen).
+        // Triggerpunkt auf -0.15m vorverlegt, um die Regler- und Kommunikationslatenz bei 1.1m/s zu kompensieren.
+        bool close_to_center = (dist_longitudinal >= -0.15);
+        double trigger_dist_front = (maze_scale_ / 2.0) + 0.15; // z.B. 0.90m bei 1.5m Scale
+        if (dist_front < trigger_dist_front) {
+            close_to_center = true;
+        }
+
+        // Nur nahe dem Zentrum der Zelle entscheiden
+        if (!close_to_center || evaluated_this_cell_) {
+            return;
+        }
+
+        double open_thresh = drive_params_.dist_free_path; 
+        double dist_front_projected = dist_front + dist_longitudinal;
+        bool can_go_straight = (dist_front_projected > open_thresh);
         bool can_go_left   = (dist_left > open_thresh);
         bool can_go_right  = (dist_right > open_thresh);
 
         // Nur agieren bei Abzweigungen oder Sackgassen
-        if (can_go_straight && !can_go_left && !can_go_right) return;
+        if (can_go_straight && !can_go_left && !can_go_right) {
+            // Keine Drehung erforderlich, Zelle als evaluiert markieren
+            evaluated_this_cell_ = true;
+            grid_memory_[{current_gx, current_gy}] += 1;
+            return;
+        }
 
         double yaw_straight = target_yaw_;
         double yaw_left = target_yaw_ + (M_PI / 2.0);
@@ -291,30 +455,41 @@ private:
         
         int min_visits = std::min({v_straight, v_left, v_right});
 
+        double new_target_yaw = target_yaw_;
+        bool turn_needed = false;
+
         // Weg priorisieren: Bevorzuge unbesuchte Wege und Geradeausfahrt
         if (min_visits < 9999) {
             if (v_straight == min_visits) {
-                target_yaw_ = yaw_straight; 
+                new_target_yaw = yaw_straight; 
             } else if (v_left == min_visits) {
-                target_yaw_ = yaw_left;
-                auto_state_ = RobotState::TURNING;
+                new_target_yaw = yaw_left;
+                turn_needed = true;
             } else {
-                target_yaw_ = yaw_right;
-                auto_state_ = RobotState::TURNING;
+                new_target_yaw = yaw_right;
+                turn_needed = true;
             }
         } else {
             // Sackgasse: 180 Grad drehen
-            target_yaw_ += M_PI; 
-            auto_state_ = RobotState::TURNING;
+            new_target_yaw = target_yaw_ + M_PI; 
+            turn_needed = true;
         }
         
         // Zielwinkel am Labyrinth-Raster einrasten
-        target_yaw_ = std::round(target_yaw_ / (M_PI / 2.0)) * (M_PI / 2.0);
+        new_target_yaw = std::round(new_target_yaw / (M_PI / 2.0)) * (M_PI / 2.0);
         
-        // Bei neuer Drehung sofort Bremsen
-        if (auto_state_ == RobotState::TURNING) {
+        if (turn_needed) {
+            target_yaw_ = new_target_yaw;
+            auto_state_ = RobotState::DECELERATING;
+            decel_start_time_ = this->now();
             twist.linear.x = 0.0;
+            twist.angular.z = 0.0;
+        } else {
+            // Keine Drehung erforderlich, wir fahren geradeaus weiter
         }
+        
+        evaluated_this_cell_ = true;
+        grid_memory_[{current_gx, current_gy}] += 1;
     }
 
     // Geradeausfahrt mit PD-Regler zur perfekten Wandzentrierung
@@ -328,16 +503,25 @@ private:
         // Notbremse vor Wänden
         if (dist_front < maze_scale_ * 0.3) twist.linear.x = 0.0;
 
-        double yaw_error = target_yaw_ - current_yaw_;
-        yaw_error = std::atan2(std::sin(yaw_error), std::cos(yaw_error));
+        double yaw_error = normalize_angle(target_yaw_ - current_yaw_);
         
         float center_error = 0.0;
         float d_error = 0.0; 
         
-        // Zentrierung nur anwenden, wenn links UND rechts Wände existieren
-        if (dist_left < drive_params_.dist_free_path && dist_right < drive_params_.dist_free_path) {
+        bool has_left_wall = (dist_left < drive_params_.dist_free_path);
+        bool has_right_wall = (dist_right < drive_params_.dist_free_path);
+
+        if (has_left_wall && has_right_wall) {
             center_error = dist_left - dist_right;
             d_error = center_error - prev_center_error_; 
+        } else if (has_left_wall && maze_scale_ > 0.0) {
+            // Einwandige Zentrierung links (Soll-Abstand ist die halbe Labyrinth-Breite)
+            center_error = 2.0 * (dist_left - (maze_scale_ / 2.0));
+            d_error = center_error - prev_center_error_;
+        } else if (has_right_wall && maze_scale_ > 0.0) {
+            // Einwandige Zentrierung rechts (Soll-Abstand ist die halbe Labyrinth-Breite)
+            center_error = 2.0 * ((maze_scale_ / 2.0) - dist_right);
+            d_error = center_error - prev_center_error_;
         }
         prev_center_error_ = center_error; 
 
@@ -351,12 +535,23 @@ private:
 
     // --- HILFSFUNKTIONEN ---
 
+    // Normalisiert einen Winkel auf den Bereich [-pi, pi]
+    double normalize_angle(double angle) {
+        return std::atan2(std::sin(angle), std::cos(angle));
+    }
+
     // Ermittelt den geringsten Abstand in einem bestimmten Laserscan-Kegel
     float get_min_dist_cone(const sensor_msgs::msg::LaserScan::SharedPtr& msg, double angle, int spread) {
+        // Schutz vor Division durch Null oder leeren Scans
+        if (msg->ranges.empty() || msg->angle_increment == 0.0f) {
+            return 10.0f;
+        }
         int center = std::round((angle - msg->angle_min) / msg->angle_increment);
         float min_d = 10.0f;
+        int num_ranges = static_cast<int>(msg->ranges.size());
         for (int i = center - spread; i <= center + spread; ++i) {
-            int idx = (i + msg->ranges.size()) % msg->ranges.size();
+            // Sicherstellen, dass der Index immer im gültigen Bereich [0, num_ranges-1] liegt
+            int idx = (i % num_ranges + num_ranges) % num_ranges;
             float d = msg->ranges[idx];
             if (!std::isnan(d) && !std::isinf(d) && d > 0.05) {
                 min_d = std::min(min_d, d);
@@ -388,11 +583,14 @@ private:
             current_mode_ = RobotMode::AUTONOMOUS;
             auto_state_ = RobotState::DRIVE_FORWARD; 
             is_initialized_ = false; 
+            grid_initialized_ = false;
             prev_center_error_ = 0.0;
-            RCLCPP_INFO(this->get_logger(), "Modus: AUTONOM");
+            evaluated_this_cell_ = true; // Zelle bei Moduswechsel als bereits evaluiert markieren
+            is_reset_time_set_ = false; // Stabilisierungsphase bei Moduswechsel erneut aktivieren
+            RCLCPP_INFO(this->get_logger(), "\033[1;34mModus: AUTONOM\033[0m");
         } else {
             current_mode_ = RobotMode::MANUAL;
-            RCLCPP_INFO(this->get_logger(), "Modus: MANUELL");
+            RCLCPP_INFO(this->get_logger(), "\033[1;34mModus: MANUELL\033[0m");
         }
     }
 
@@ -403,16 +601,20 @@ private:
         current_mode_ = ctrl_params_.start_manual ? RobotMode::MANUAL : RobotMode::AUTONOMOUS;
         auto_state_ = RobotState::DRIVE_FORWARD;
         is_initialized_ = false; 
+        grid_initialized_ = false;
         prev_center_error_ = 0.0; 
         maze_scale_ = 0.0;
         grid_memory_.clear();
-        evaluated_this_cell_ = false;
+        evaluated_this_cell_ = true; // Startzelle als bereits evaluiert markieren
         
-        RCLCPP_WARN(this->get_logger(), "Reset ausgeführt. Teleportiere Roboter...");
+        RCLCPP_WARN(this->get_logger(), "\033[1;34mReset ausgeführt. Teleportiere Roboter...\033[0m");
 
         // Gazebo System-Call bleibt bestehen
         system("gz service -s /world/maze_world/set_pose --reqtype gz.msgs.Pose --reptype gz.msgs.Boolean --timeout 2000 "
                "--req \"name: 'maze_runner', position: {x: 1.5, y: 0, z: 0.2}, orientation: {x: 0, y: 0, z: 0.7071, w: 0.7071}\" &");
+
+        // Stabilisierungszeitpunkt nach Reset neu triggern
+        is_reset_time_set_ = false;
     }
 };
 
