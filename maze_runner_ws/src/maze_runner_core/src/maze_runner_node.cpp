@@ -241,7 +241,7 @@ private:
         if (auto_state_ == RobotState::TURNING) {
             execute_turn(twist);
         } else if (auto_state_ == RobotState::DECELERATING) {
-            execute_deceleration(twist);
+            execute_deceleration(msg, twist);
         } else {
             evaluate_intersection(msg, twist);
             
@@ -367,14 +367,21 @@ private:
         }
     }
 
-    // Verzögert das Fahrzeug bis zum Stillstand vor einer Drehung
-    void execute_deceleration(geometry_msgs::msg::Twist& twist) {
-        twist.linear.x = 0.0;
-        twist.angular.z = 0.0;
+    // Verzögert das Fahrzeug bis zum Stillstand vor einer Drehung mit einer linearen Geschwindigkeitsrampe
+    void execute_deceleration(const sensor_msgs::msg::LaserScan::SharedPtr& msg, geometry_msgs::msg::Twist& twist) {
+        // Erst Zentrierungsregler ausführen, um in der Spur zu bleiben
+        drive_and_center(msg, twist);
 
         double elapsed = (this->now() - decel_start_time_).seconds();
-        if (elapsed >= 0.4) {
+        double duration = 0.5; // Bremsdauer in Sekunden
+
+        if (elapsed >= duration) {
             auto_state_ = RobotState::TURNING;
+            twist.linear.x = 0.0;
+            twist.angular.z = 0.0;
+        } else {
+            double scale = std::clamp(1.0 - (elapsed / duration), 0.0, 1.0);
+            twist.linear.x *= scale;
         }
     }
 
@@ -415,9 +422,9 @@ private:
         // Bestimme, ob wir nah genug am Zentrum sind, um eine Entscheidung zu treffen.
         // Wir nutzen eine Kombination aus EKF-Distanz (für offene Kreuzungen) und 
         // präziser LiDAR-Distanz zur Vorderwand (für Ecken/Sackgassen/T-Kreuzungen).
-        // Triggerpunkt auf -0.15m vorverlegt, um die Regler- und Kommunikationslatenz bei 1.1m/s zu kompensieren.
-        bool close_to_center = (dist_longitudinal >= -0.15);
-        double trigger_dist_front = (maze_scale_ / 2.0) + 0.15; // z.B. 0.90m bei 1.5m Scale
+        // Triggerpunkt auf -0.30m vorverlegt, um den Bremsweg bei der Geschwindigkeitsrampe zu kompensieren.
+        bool close_to_center = (dist_longitudinal >= -0.30);
+        double trigger_dist_front = (maze_scale_ / 2.0) + 0.30; // z.B. 1.05m bei 1.5m Scale
         if (dist_front < trigger_dist_front) {
             close_to_center = true;
         }
