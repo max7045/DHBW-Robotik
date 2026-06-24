@@ -2,6 +2,7 @@
 #include "sensor_msgs/msg/laser_scan.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 #include "geometry_msgs/msg/twist.hpp"
+#include "visualization_msgs/msg/marker_array.hpp"
 #include "tf2_ros/transform_listener.h"
 #include "tf2_ros/buffer.h"
 #include <tf2/LinearMath/Quaternion.h>
@@ -55,6 +56,7 @@ public:
             std::bind(&MazeRunnerControl::scan_callback, this, std::placeholders::_1));
         joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy>("/joy", 10, 
             std::bind(&MazeRunnerControl::joy_callback, this, std::placeholders::_1));
+        marker_pub_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/tremaux_markers_array", 10);
 
         RCLCPP_INFO(this->get_logger(), "\033[1;34mMazeRunnerControl Node erfolgreich initialisiert.\033[0m");
     }
@@ -81,6 +83,8 @@ private:
     bool grid_initialized_ = false;
     int last_gx_ = 0;
     int last_gy_ = 0;
+    std::string pose_frame_id_ = "map";
+    bool enable_debug_ = true;
 
     bool last_btn_a_state_ = false;
     bool last_btn_b_state_ = false;
@@ -92,6 +96,7 @@ private:
     std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
     std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
     rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr cmd_pub_;
+    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_pub_;
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr scan_sub_;
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
 
@@ -115,6 +120,7 @@ private:
         pid_params_.kp_heading = this->declare_parameter("kp_heading", 1.0);
         pid_params_.kp_center = this->declare_parameter("kp_center", 0.3);
         pid_params_.kd_center = this->declare_parameter("kd_center", 0.6);
+        enable_debug_ = this->declare_parameter("enable_debug", true);
     }
 
     // --- EINGABE-VERARBEITUNG ---
@@ -300,9 +306,11 @@ private:
         geometry_msgs::msg::TransformStamped tf;
         try {
             tf = tf_buffer_->lookupTransform("map", "base_footprint", tf2::TimePointZero);
+            pose_frame_id_ = "map";
         } catch (const tf2::TransformException &ex) {
             try { // Fallback auf Odom
                 tf = tf_buffer_->lookupTransform("odom", "base_footprint", tf2::TimePointZero);
+                pose_frame_id_ = "odom";
             } catch (const tf2::TransformException &ex2) {
                 return false;
             }
@@ -337,9 +345,11 @@ private:
         }
 
         if (current_gx != last_gx_ || current_gy != last_gy_) {
-            RCLCPP_INFO(this->get_logger(), 
-                        "\033[1;34m[DEBUG] Zellwechsel erkannt: von (%d, %d) nach (%d, %d). Setze evaluated_this_cell auf false.\033[0m", 
-                        last_gx_, last_gy_, current_gx, current_gy);
+            if (enable_debug_) {
+                RCLCPP_INFO(this->get_logger(), 
+                            "\033[1;34m[DEBUG] Zellwechsel erkannt: von (%d, %d) nach (%d, %d). Setze evaluated_this_cell auf false.\033[0m", 
+                            last_gx_, last_gy_, current_gx, current_gy);
+            }
             evaluated_this_cell_ = false;
             last_gx_ = current_gx;
             last_gy_ = current_gy;
@@ -348,6 +358,7 @@ private:
 
     // Loggt den aktuellen Navigationsstatus in regelmaessigen Abstaenden (0.5s)
     void log_navigation_status() {
+        if (!enable_debug_) return;
         if (maze_scale_ <= 0.0) {
             return;
         }
@@ -445,6 +456,7 @@ private:
             // Keine Drehung erforderlich, Zelle als evaluiert markieren
             evaluated_this_cell_ = true;
             grid_memory_[{current_gx, current_gy}] += 1;
+            publish_tremaux_markers();
             return;
         }
 
@@ -497,6 +509,7 @@ private:
         
         evaluated_this_cell_ = true;
         grid_memory_[{current_gx, current_gy}] += 1;
+        publish_tremaux_markers();
     }
 
     // Geradeausfahrt mit PD-Regler zur perfekten Wandzentrierung
@@ -567,6 +580,72 @@ private:
         return min_d;
     }
 
+    // Veröffentlicht die Trémaux-Karte als farbige Marker in RViz
+    void publish_tremaux_markers() {
+        if (maze_scale_ <= 0.0) {
+            return;
+        }
+
+        auto marker_array = visualization_msgs::msg::MarkerArray();
+
+        // 1. Zuerst alle bisherigen Marker loeschen (verhindert Geister-Marker nach Reset)
+        visualization_msgs::msg::Marker clear_marker;
+        clear_marker.header.frame_id = pose_frame_id_;
+        clear_marker.header.stamp = this->now();
+        clear_marker.ns = "tremaux";
+        clear_marker.action = visualization_msgs::msg::Marker::DELETEALL;
+        marker_array.markers.push_back(clear_marker);
+        marker_pub_->publish(marker_array);
+        marker_array.markers.clear();
+
+        // 2. Neue Marker erstellen
+        int id = 0;
+        for (const auto& [cell, visits] : grid_memory_) {
+            // Wand-Zellen (9999) nicht einzeichnen
+            if (visits >= 9999) {
+                continue;
+            }
+
+            visualization_msgs::msg::Marker marker;
+            marker.header.frame_id = pose_frame_id_;
+            marker.header.stamp = this->now();
+            marker.ns = "tremaux";
+            marker.id = id++;
+            marker.type = visualization_msgs::msg::Marker::CUBE;
+            marker.action = visualization_msgs::msg::Marker::ADD;
+
+            // Position (Zellzentrum auf Bodenhöhe)
+            marker.pose.position.x = cell.first * maze_scale_;
+            marker.pose.position.y = cell.second * maze_scale_;
+            marker.pose.position.z = 0.01; // minimal ueber dem Boden, um Z-Fighting zu vermeiden
+            marker.pose.orientation.w = 1.0;
+
+            // Groesse (etwas kleiner als die Zelle, z.B. 80% der Skala, damit man die Zellgrenzen sieht)
+            marker.scale.x = maze_scale_ * 0.8;
+            marker.scale.y = maze_scale_ * 0.8;
+            marker.scale.z = 0.02;
+
+            // Farbkodierung nach Besuchsanzahl:
+            // 0 Besuche (in grid_memory registriert) -> Blau
+            // 1 Besuch -> Gruen (semi-transparent)
+            // 2 Besuche -> Gelb/Orange (semi-transparent)
+            // >= 3 Besuche -> Rot (semi-transparent)
+            if (visits == 0) {
+                marker.color.r = 0.0f; marker.color.g = 0.5f; marker.color.b = 1.0f; marker.color.a = 0.3f;
+            } else if (visits == 1) {
+                marker.color.r = 0.0f; marker.color.g = 1.0f; marker.color.b = 0.0f; marker.color.a = 0.4f;
+            } else if (visits == 2) {
+                marker.color.r = 1.0f; marker.color.g = 0.7f; marker.color.b = 0.0f; marker.color.a = 0.4f;
+            } else {
+                marker.color.r = 1.0f; marker.color.g = 0.0f; marker.color.b = 0.0f; marker.color.a = 0.5f;
+            }
+
+            marker_array.markers.push_back(marker);
+        }
+
+        marker_pub_->publish(marker_array);
+    }
+
     // Verarbeitet manuelle Gamepad-Eingaben
     void execute_manual_drive(const sensor_msgs::msg::Joy::SharedPtr& msg) {
         auto twist = geometry_msgs::msg::Twist();
@@ -612,6 +691,7 @@ private:
         prev_center_error_ = 0.0; 
         maze_scale_ = 0.0;
         grid_memory_.clear();
+        publish_tremaux_markers();
         evaluated_this_cell_ = true; // Startzelle als bereits evaluiert markieren
         
         RCLCPP_WARN(this->get_logger(), "\033[1;34mReset ausgeführt. Teleportiere Roboter...\033[0m");

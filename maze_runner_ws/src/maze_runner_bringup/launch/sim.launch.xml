@@ -1,5 +1,6 @@
 <launch>
     <arg name="use_controller" default="false" />
+    <arg name="enable_debug" default="true" />
     <arg name="world_file" default="$(find-pkg-share maze_runner_gazebo)/worlds/random_maze_cpp.sdf" />
     <arg name="robot_desc" default="$(command 'xacro $(find-pkg-share maze_runner_description)/urdf/maze_runner.urdf.xacro')" />
 
@@ -42,6 +43,7 @@
     <node pkg="maze_runner_core" exec="maze_runner_node" name="maze_runner_node" output="screen">
         <param name="use_controller" value="$(var use_controller)" />
         <param name="use_sim_time" value="true" />
+        <param name="enable_debug" value="$(var enable_debug)" />
     </node>
 
 </launch>

@@ -1,22 +1,39 @@
 #!/bin/bash
 
+# Default values
 USE_CTRL="false"
+ENABLE_DEBUG="true"
 USE_TEXTURES="true"
 NEW_LABYRINTH="false"
 
 for arg in "$@"; do
     if [ "$arg" == "-c" ] || [ "$arg" == "-controller" ]; then
         USE_CTRL="true"
-        echo "Controller-Modus aktiviert."
+        echo "Controller-Modus per Parameter aktiviert."
+    fi
+    if [ "$arg" == "-no-controller" ]; then
+        USE_CTRL="false"
+        echo "Controller-Modus per Parameter deaktiviert."
+    fi
+    if [ "$arg" == "-d" ] || [ "$arg" == "-debug" ]; then
+        ENABLE_DEBUG="true"
+        echo "Debug-Modus per Parameter aktiviert."
+    fi
+    if [ "$arg" == "-no-debug" ]; then
+        ENABLE_DEBUG="false"
+        echo "Debug-Modus per Parameter deaktiviert."
     fi
     if [ "$arg" == "-no-textures" ]; then
         USE_TEXTURES="false"
-        echo "Texturen deaktiviert (Performance-Modus)."
+        echo "Texturen deaktiviert (Performance-Modus) per Parameter."
     fi
-
+    if [ "$arg" == "-textures" ]; then
+        USE_TEXTURES="true"
+        echo "Texturen aktiviert per Parameter."
+    fi
     if [ "$arg" == "-l" ]; then
         NEW_LABYRINTH="true"
-        echo "Neues Labyrinth generieren."
+        echo "Neues Labyrinth generieren per Parameter."
     fi
 done
 
@@ -41,4 +58,4 @@ if [ "$NEW_LABYRINTH" == "true" ]; then
 fi
 
 echo "Starte Simulation..."
-ros2 launch maze_runner_bringup sim.launch.xml use_controller:=$USE_CTRL
+ros2 launch maze_runner_bringup sim.launch.xml use_controller:=$USE_CTRL enable_debug:=$ENABLE_DEBUG
