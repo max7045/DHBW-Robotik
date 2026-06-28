@@ -31,16 +31,22 @@ gz sim ../worlds/random_maze_cpp.sdf
 Um das komplette Projekt zu starten steht ein Shell-Skript im Hauptverzeichnis des Workspaces `maze_runner_ws` zur Verfügung:
 
 ```bash
-bash -x ./run.bash [-l] [-c] [-no-textures]
+bash -x ./run.bash [-l] [-c] [--no-textures] [--no-debug]
 ```
 
 Das Skript hat folgende (optionale) Parameter:
-- `-l`: Ein (neues) Labyrinth generieren &rarr; Ansonsten wird die zuletzt generierte Welt verwendet
-- `-c`: Controller-Modus aktivieren (manuelle Steuerung)
-- `-no-textures`: Keine Texturen verwenden (in Gazebo) &rarr; Bessere Performance
+- `-l` / `--new-labyrinth`: Ein (neues) Labyrinth generieren &rarr; Ansonsten wird die zuletzt generierte Welt verwendet
+- `-c` / `--controller`: Controller-Modus aktivieren (manuelle Steuerung)
+- `--no-textures`: Keine Texturen verwenden (in Gazebo) &rarr; Bessere Performance
    - Muss mit `-l` kombiniert werden, damit die Welt ohne Texturen generiert wird
+- `--no-debug`: Debug-Modus (Status-Ausgaben im Terminal) deaktivieren
 
 **Achtung**: Ist beim Start kein Labyrinth vorhanden und der Parameter `-l` nicht gesetzt, wird Gazebo nicht gestartet und die Simulation ist nicht zielführend!
+
+<u>Hinweis:</u> Die Standardwerte können im Code (`run.bash`) leicht geändert werden. Für diesen Fall wurden zudem folgende Parameter implementiert:
+- `--no-controller`: Controller-Modus explizit deaktivieren
+- `-t` / `--textures`: Texturen explizit aktivieren
+- `-d` / `--debug`: Debug-Modus explizit aktivieren
 
 ##
 
@@ -114,4 +120,9 @@ Installation erfolgt mit `rosdep install --from-paths src --ignore-src -r` im Ha
    - Ist *Geradeaus* blockiert (z. B. durch eine Wand) oder schlechter bewertet, probiert er es nach *Links*.
    - Als dritte Wahl weicht er nach *Rechts* aus.
    - Sind alle Wege blockiert oder er befindet sich in einer Sackgasse, dreht er sich um 180° um und fährt zurück bis zur nächsten Kreuzung.
+- Dabei wird in *RViz* farbig markiert wie oft der Roboter die einzelnen Zellen befahren hat:
+   - 🟦 **Blau**: Zelle / Weg erkannt, aber noch nicht befahren
+   - 🟩 **Grün**: Genau einmal befahren
+   - 🟨 **Orange**: Zweimal befahren (z. B. Wendemanöver in einer Sackgasse)
+   - 🟥 **Rot**: Drei- oder mehrmals befahren
 - Sobald der LiDAR-Sensor im vorderen Halbfeld (180°) kein Hindernis mehr innerhalb eines Schwellenwerts (2 Einheiten) erkennt, stoppt er (Annahme: Ausgang gefunden).

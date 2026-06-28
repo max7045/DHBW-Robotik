@@ -7,31 +7,31 @@ USE_TEXTURES="true"
 NEW_LABYRINTH="false"
 
 for arg in "$@"; do
-    if [ "$arg" == "-c" ] || [ "$arg" == "-controller" ]; then
+    if [ "$arg" == "-c" ] || [ "$arg" == "--controller" ]; then
         USE_CTRL="true"
         echo "Controller-Modus per Parameter aktiviert."
     fi
-    if [ "$arg" == "-no-controller" ]; then
+    if [ "$arg" == "--no-controller" ]; then
         USE_CTRL="false"
         echo "Controller-Modus per Parameter deaktiviert."
     fi
-    if [ "$arg" == "-d" ] || [ "$arg" == "-debug" ]; then
+    if [ "$arg" == "-d" ] || [ "$arg" == "--debug" ]; then
         ENABLE_DEBUG="true"
         echo "Debug-Modus per Parameter aktiviert."
     fi
-    if [ "$arg" == "-no-debug" ]; then
+    if [ "$arg" == "--no-debug" ]; then
         ENABLE_DEBUG="false"
         echo "Debug-Modus per Parameter deaktiviert."
     fi
-    if [ "$arg" == "-no-textures" ]; then
+    if [ "$arg" == "--no-textures" ]; then
         USE_TEXTURES="false"
         echo "Texturen deaktiviert (Performance-Modus) per Parameter."
     fi
-    if [ "$arg" == "-textures" ]; then
+    if [ "$arg" == "-t" ] || [ "$arg" == "--textures" ]; then
         USE_TEXTURES="true"
         echo "Texturen aktiviert per Parameter."
     fi
-    if [ "$arg" == "-l" ]; then
+    if [ "$arg" == "-l" ] || [ "$arg" == "--new-labyrinth" ]; then
         NEW_LABYRINTH="true"
         echo "Neues Labyrinth generieren per Parameter."
     fi
